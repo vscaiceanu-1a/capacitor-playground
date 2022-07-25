@@ -13,14 +13,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@capacitor/core": "latest",
+    "@capacitor/android": "^3.6.0",
     "@capacitor/camera": "latest",
+    "@capacitor/core": "latest",
+    "@capacitor/ios": "^3.6.0",
     "@capacitor/splash-screen": "latest"
   },
   "devDependencies": {
     "@capacitor/cli": "latest",
     "vite": "^2.9.13"
   },
-  "author": "",
+  "author": "Victor Scaiceanu",
   "license": "ISC"
 }
