@@ -10,3 +10,12 @@ To run the provided example, you can use [serve](https://www.npmjs.com/package/s
 ```bash
 npm start
 ```
+
+### Test trapeze library
+
+```bash
+npm install
+npm run build
+npm run config
+```
+

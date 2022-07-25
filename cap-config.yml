@@ -1,0 +1,39 @@
+vars:
+  IOS_BUNDLE_ID:
+    default: com.example.ios.bundle.id
+  ANDROID_PACKAGE_NAME:
+    default: com.example.android.bundle.id
+  PRODUCT_NAME:
+    default: Trapeze App
+
+platforms:
+  ios:
+    targets:
+      App:
+        bundleId: $IOS_BUNDLE_ID
+        version: 0.2.0
+        buildNumber: 1
+        productName: $PRODUCT_NAME
+        displayName: $PRODUCT_NAME
+        json:
+          - file: App/capacitor.config.json
+            set:
+              appId: $IOS_BUNDLE_ID
+  android:
+    packageName: $ANDROID_PACKAGE_NAME
+    versionName: 0.2.0
+    versionCode: 1
+    json:
+      - file: app/src/main/assets/capacitor.config.json
+        set:
+          appId: $ANDROID_PACKAGE_NAME
+    xml:
+      - resFile: values/strings.xml
+        target: /resources
+        merge: |
+          <resources>
+            <string name="app_name">$PRODUCT_NAME</string>
+            <string name="title_activity_main">$PRODUCT_NAME</string>
+            <string name="package_name">$ANDROID_PACKAGE_NAME</string>
+            <string name="custom_url_scheme">$ANDROID_PACKAGE_NAME</string>
+          </resources>
