@@ -27,13 +27,23 @@ platforms:
       - file: app/src/main/assets/capacitor.config.json
         set:
           appId: $ANDROID_PACKAGE_NAME
+    # xml:
+    #     - file: app/src/main/res/values/strings.xml
+    #       delete: //resources
     xml:
       - resFile: values/strings.xml
-        target: /resources
-        merge: |
-          <resources>
-            <string name="app_name">$PRODUCT_NAME</string>
-            <string name="title_activity_main">$PRODUCT_NAME</string>
-            <string name="package_name">$ANDROID_PACKAGE_NAME</string>
-            <string name="custom_url_scheme">$ANDROID_PACKAGE_NAME</string>
-          </resources>
+        target: resources/string[@name="app_name"]
+        replace: |
+          <string name="app_name">$PRODUCT_NAME</string>
+      - resFile: values/strings.xml
+        target: resources/string[@name="title_activity_main"]
+        replace: |
+          <string name="title_activity_main">$PRODUCT_NAME</string>
+      - resFile: values/strings.xml
+        target: resources/string[@name="package_name"]
+        replace: |
+          <string name="package_name">$ANDROID_PACKAGE_NAME</string>
+      - resFile: values/strings.xml
+        target: resources/string[@name="custom_url_scheme"]
+        replace: |
+          <string name="custom_url_scheme">$ANDROID_PACKAGE_NAME</string>
